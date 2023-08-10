@@ -1,0 +1,11 @@
+---
+- name: test playbook
+  hosts: localhost
+  tasks:
+    - name: Lookup queue
+      set_fact:
+        contents: "{{ lookup('rabbitmq', url='amqp://rbmq:rbmq@localhost:5673/%2F', queue='awxQueue') }}"
+
+    - name: Picked up message from the queue
+      debug:
+        msg: "the queue contained {{ contents }}"

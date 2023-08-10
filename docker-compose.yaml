@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.2-management
+    ports:
+      - "5673:5672"     # RabbitMQ port
+      - "15672:15672"   # RabbitMQ Management Console port
+    environment:
+      - RABBITMQ_DEFAULT_USER=rbmq
+      - RABBITMQ_DEFAULT_PASS=rbmq
